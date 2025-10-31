@@ -23,12 +23,26 @@
 </script>
 
 {#if collapsible === "none"}
-  <div class={cn("bg-sidebar text-sidebar-foreground w-(--sidebar-width) flex h-full flex-col", className)} bind:this={ref} {...restProps}>
+  <div
+    class={cn(
+      "bg-sidebar/90 text-sidebar-foreground w-(--sidebar-width) flex h-full flex-col border-r border-sidebar-border/60 shadow-xl backdrop-blur-xl",
+      className,
+    )}
+    bind:this={ref}
+    {...restProps}
+  >
     {@render children?.()}
   </div>
 {:else if sidebar.isMobile}
   <Sheet.Root bind:open={() => sidebar.openMobile, (v) => sidebar.setOpenMobile(v)} {...restProps}>
-    <Sheet.Content data-sidebar="sidebar" data-slot="sidebar" data-mobile="true" class="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden" style="--sidebar-width: {SIDEBAR_WIDTH_MOBILE};" {side}>
+    <Sheet.Content
+      data-sidebar="sidebar"
+      data-slot="sidebar"
+      data-mobile="true"
+      class="bg-sidebar/95 text-sidebar-foreground w-(--sidebar-width) border-r border-sidebar-border/60 p-0 shadow-xl backdrop-blur-xl [&>button]:hidden"
+      style="--sidebar-width: {SIDEBAR_WIDTH_MOBILE};"
+      {side}
+    >
       <Sheet.Header class="sr-only">
         <Sheet.Title>Sidebar</Sheet.Title>
         <Sheet.Description>Displays the mobile sidebar.</Sheet.Description>
@@ -53,7 +67,11 @@
       )}
       {...restProps}
     >
-      <div data-sidebar="sidebar" data-slot="sidebar-inner" class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm">
+      <div
+        data-sidebar="sidebar"
+        data-slot="sidebar-inner"
+        class="bg-sidebar/95 group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col border-r border-sidebar-border/70 backdrop-blur-xl group-data-[variant=floating]:rounded-2xl group-data-[variant=floating]:border group-data-[variant=floating]:shadow-lg"
+      >
         {@render children?.()}
       </div>
     </div>

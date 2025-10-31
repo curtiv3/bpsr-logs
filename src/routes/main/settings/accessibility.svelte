@@ -7,7 +7,7 @@
   const SETTINGS_CATEGORY = "accessibility";
 </script>
 
-<Tabs.Content value={SETTINGS_CATEGORY}>
+<Tabs.Content value={SETTINGS_CATEGORY} class="space-y-4">
   <SettingsSwitch bind:checked={SETTINGS.accessibility.state.blur} label="Blur Meter Background" description="Adds background blur effect to live meter (Windows 10 only). Bad performance when resizing/dragging the window on Windows 11 build 22621+ unless you to disable Transparency effects in Windows accessibility SETTINGS." onCheckedChange={(checked) => checked ? commands.enableBlur() : commands.disableBlur()} />
   <SettingsSwitch bind:checked={SETTINGS.accessibility.state.transparency} label="Transparent Meter" description="Toggle transparent background for live meter." />
 </Tabs.Content>
