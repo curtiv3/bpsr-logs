@@ -7,6 +7,6 @@
   const SETTINGS_CATEGORY = "integration";
 </script>
 
-<Tabs.Content value={SETTINGS_CATEGORY}>
+<Tabs.Content value={SETTINGS_CATEGORY} class="space-y-4">
   <SettingsSwitchDialog bind:checked={SETTINGS.integration.state.bptimer} label="BP Timer" description="World Boss and Magical Creature HP data for bptimer.com" />
 </Tabs.Content>

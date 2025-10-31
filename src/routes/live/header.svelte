@@ -85,24 +85,42 @@
 </script>
 
 <!-- justify-between to create left/right sides -->
-<header data-tauri-drag-region class="sticky top-0 flex h-7 w-full items-center justify-between bg-neutral-900/80 px-1">
-  <!-- Left side -->
-  <span>
+<header data-tauri-drag-region class="live-app-header">
+  <div class="live-app-header__metrics">
     <button
+      type="button"
+      class="live-icon-button"
       onclick={() => {
         commands.hardReset();
         window.location.reload();
       }}
-      {@attach tooltip(() => "Temp Fix: Hard Reset")}><RefreshCwIcon /></button
+      aria-label="Hard reset encounter"
+      {@attach tooltip(() => "Temp Fix: Hard Reset")}
     >
-    <span {@attach tooltip(() => "Time Elapsed")}>{formatElapsed(headerInfo.elapsedMs)}</span>
-    <span><span {@attach tooltip(() => "Total Damage Dealt")}>T.DMG</span> <span {@attach tooltip(() => headerInfo.totalDmg.toLocaleString())}><AbbreviatedNumber num={Number(headerInfo.totalDmg)} /></span></span>
-    <span><span {@attach tooltip(() => "Total Damage per Second")}>T.DPS</span> <span {@attach tooltip(() => headerInfo.totalDps.toLocaleString())}><AbbreviatedNumber num={headerInfo.totalDps} /></span></span>
-  </span>
-  <!-- Right side -->
-  <span class="flex gap-1">
-    <!-- TODO: add responsive clicks, toaster -->
+      <RefreshCwIcon />
+    </button>
+    <div>
+      <span {@attach tooltip(() => "Time Elapsed")}>Elapsed</span>
+      <strong>{formatElapsed(headerInfo.elapsedMs)}</strong>
+    </div>
+    <div>
+      <span {@attach tooltip(() => "Total Damage Dealt")}>T.DMG</span>
+      <strong {@attach tooltip(() => headerInfo.totalDmg.toLocaleString())}>
+        <AbbreviatedNumber num={Number(headerInfo.totalDmg)} />
+      </strong>
+    </div>
+    <div>
+      <span {@attach tooltip(() => "Total Damage per Second")}>T.DPS</span>
+      <strong {@attach tooltip(() => headerInfo.totalDps.toLocaleString())}>
+        <AbbreviatedNumber num={headerInfo.totalDps} />
+      </strong>
+    </div>
+  </div>
+
+  <div class="live-app-header__controls">
     <button
+      type="button"
+      class="live-icon-button"
       onclick={async () => {
         const prev = SETTINGS.general.state.showOthersName;
         if (SETTINGS.general.state.showOthersName === "Show Others' Name") {
@@ -119,22 +137,31 @@
         SETTINGS.general.state.showOthersName = prev;
         await tick();
       }}
+      aria-label="Screenshot to clipboard"
       {@attach tooltip(() => "Screenshot to Clipboard")}
     >
       <CameraIcon />
     </button>
     <button
+      type="button"
+      class="live-icon-button"
       onclick={async () => {
         commands.resetEncounter();
         window.location.reload(); // TODO: temp fix
       }}
-      {@attach tooltip(() => "Reset Encounter")}><TimerResetIcon /></button
+      aria-label="Reset encounter"
+      {@attach tooltip(() => "Reset Encounter")}
     >
+      <TimerResetIcon />
+    </button>
     <button
+      type="button"
+      class="live-icon-button"
       onclick={() => {
         commands.togglePauseEncounter();
         isEncounterPaused = !isEncounterPaused;
       }}
+      aria-label={isEncounterPaused ? "Resume encounter" : "Pause encounter"}
     >
       {#if isEncounterPaused}
         <PlayIcon {@attach tooltip(() => "Resume Encounter")} />
@@ -142,8 +169,32 @@
         <PauseIcon {@attach tooltip(() => "Pause Encounter")} />
       {/if}
     </button>
-    <button onclick={() => appWindow.setIgnoreCursorEvents(true)} {@attach tooltip(() => "Clickthrough")}><PointerIcon /></button>
-    <button onclick={() => openSettings()} {@attach tooltip(() => "Settings")}><SettingsIcon /></button>
-    <button onclick={() => appWindow.hide()} {@attach tooltip(() => "Minimize")}><MinusIcon /></button>
-  </span>
+    <button
+      type="button"
+      class="live-icon-button"
+      onclick={() => appWindow.setIgnoreCursorEvents(true)}
+      aria-label="Enable clickthrough"
+      {@attach tooltip(() => "Clickthrough")}
+    >
+      <PointerIcon />
+    </button>
+    <button
+      type="button"
+      class="live-icon-button"
+      onclick={() => openSettings()}
+      aria-label="Open settings"
+      {@attach tooltip(() => "Settings")}
+    >
+      <SettingsIcon />
+    </button>
+    <button
+      type="button"
+      class="live-icon-button"
+      onclick={() => appWindow.hide()}
+      aria-label="Minimize overlay"
+      {@attach tooltip(() => "Minimize")}
+    >
+      <MinusIcon />
+    </button>
+  </div>
 </header>

@@ -30,7 +30,7 @@
 <!-- flex-1 on <main> → makes the body expand to fill leftover space, pushing the footer down. -->
 <div class="flex h-screen flex-col text-sm text-white" bind:this={screenshotDiv}>
   <Header {screenshotDiv} />
-  <main class={cn("flex-1 overflow-y-auto", !SETTINGS.accessibility.state.transparency && "bg-neutral-900/25")}>
+  <main class={cn("live-stage", !SETTINGS.accessibility.state.transparency && "live-stage--solid")}>
     {@render children()}
   </main>
   <Footer />

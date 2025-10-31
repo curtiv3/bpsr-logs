@@ -21,40 +21,42 @@
   let open = $state(false);
 </script>
 
-<label class="flex flex-row items-center">
+<div class="rounded-3xl border border-border/70 bg-card/70 p-5 shadow-xs transition hover:border-border/60">
   <!-- https://shadcn-svelte.com/docs/components/combobox -->
-  <Popover.Root bind:open>
-    <Popover.Trigger>
-      <Button variant="outline" class="w-[200px] justify-between" role="combobox">
-        {selected}
-        <ChevronsUpDownIcon />
-      </Button>
-    </Popover.Trigger>
-    <Popover.Content class="w-[200px] p-0">
-      <Command.Root>
-        <Command.List>
-          <Command.Group>
-            {#each values as value (value)}
-              <Command.Item
-                {value}
-                onSelect={() => {
-                  selected = value;
-                  open = false;
-                }}
-              >
-                <CheckIcon class={cn(selected !== value && "text-transparent")} />
-                {value}
-              </Command.Item>
-            {/each}
-          </Command.Group>
-        </Command.List>
-      </Command.Root>
-    </Popover.Content>
-  </Popover.Root>
-  <div class="ml-4">
-    <div>{label}</div>
-    {#if description}
-      <div class="text-muted-foreground text-sm">{description}</div>
-    {/if}
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div class="space-y-1">
+      <p class="text-sm font-medium text-foreground">{label}</p>
+      {#if description}
+        <p class="text-muted-foreground text-xs leading-relaxed">{description}</p>
+      {/if}
+    </div>
+    <Popover.Root bind:open>
+      <Popover.Trigger class="sm:ml-auto">
+        <Button variant="outline" class="w-full justify-between sm:w-[220px]" role="combobox">
+          {selected}
+          <ChevronsUpDownIcon />
+        </Button>
+      </Popover.Trigger>
+      <Popover.Content class="w-[220px] p-0">
+        <Command.Root>
+          <Command.List>
+            <Command.Group>
+              {#each values as value (value)}
+                <Command.Item
+                  {value}
+                  onSelect={() => {
+                    selected = value;
+                    open = false;
+                  }}
+                >
+                  <CheckIcon class={cn(selected !== value && "text-transparent")} />
+                  {value}
+                </Command.Item>
+              {/each}
+            </Command.Group>
+          </Command.List>
+        </Command.Root>
+      </Popover.Content>
+    </Popover.Root>
   </div>
-</label>
+</div>

@@ -155,21 +155,26 @@
   ];
 </script>
 
-<Tabs.Content value={SETTINGS_CATEGORY}>
-  <Alert.Root variant="destructive" class="mb-4">
+<Tabs.Content value={SETTINGS_CATEGORY} class="space-y-4">
+  <Alert.Root variant="destructive" class="rounded-3xl border border-destructive/20 bg-destructive/10 p-4">
     <AlertCircleIcon />
     <Alert.Description>TBD: Make it so that having the same shortcut for Show/Hide is Toggle. For now, a separate Toggle shortcut is available.</Alert.Description>
   </Alert.Root>
-  <Alert.Root>
-    <Alert.Title>Right click to clear shortcuts</Alert.Title>
+  <Alert.Root class="rounded-3xl border border-border/70 bg-card/60 p-4">
+    <Alert.Title class="text-sm font-semibold">Right click to clear shortcuts</Alert.Title>
   </Alert.Root>
   {#each inputs as input (input.id)}
-    <Item.Root>
+    <Item.Root variant="outline" class="rounded-3xl border-border/70 bg-card/70 p-5 shadow-xs">
       <Item.Content>
-        <Item.Title>{input.label}</Item.Title>
+        <Item.Title class="text-sm font-medium text-foreground">{input.label}</Item.Title>
       </Item.Content>
       <Item.Actions>
-        <Button variant="outline" class="uppercase" onclick={() => startEdit(input)} oncontextmenu={(e: MouseEvent) => clearShortcut(input, e)}>
+        <Button
+          variant="outline"
+          class="uppercase"
+          onclick={() => startEdit(input)}
+          oncontextmenu={(e: MouseEvent) => clearShortcut(input, e)}
+        >
           {#if editingId === input.id}
             {currentShortcutString() || "Press keys"}...
           {:else}
