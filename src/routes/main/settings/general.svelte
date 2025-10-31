@@ -9,7 +9,7 @@
   const SETTINGS_CATEGORY = "general";
 </script>
 
-<Tabs.Content value={SETTINGS_CATEGORY}>
+<Tabs.Content value={SETTINGS_CATEGORY} class="space-y-4">
   <SettingsSelect bind:selected={SETTINGS.general.state.showYourName} values={["Show Your Name", "Show Your Class", "Hide Your Name"]} label="Show Your Name" description="Show Your Class = replace your name with your class." />
   <SettingsSelect bind:selected={SETTINGS.general.state.showOthersName} values={["Show Others' Name", "Show Others' Class", "Hide Others' Name"]} label="Show Others' Name" description="Show Others' Class = replace others' name with their class." />
   <SettingsSwitch bind:checked={SETTINGS.general.state.showYourAbilityScore} label="Your Ability Score" description="Show your ability score." />

@@ -42,19 +42,21 @@
   }
 </script>
 
-<label class="flex flex-row items-center">
+<div class="space-y-0">
   <SettingsSwitch bind:checked onCheckedChange={handleSwitchChange} {...restProps} />
   <!-- confirmation dialog shown when turning off -->
-    <Dialog.Root bind:open={confirmOpen}>
-      <Dialog.Content showCloseButton={false}>
-        <Dialog.Header>
-          <Dialog.Title>Disable integration?</Dialog.Title>
-          <Dialog.Description>We rely on this data to help other players. Are you sure you want to continue?</Dialog.Description>
-        </Dialog.Header>
-        <Dialog.Footer>
-          <Button onclick={() => cancelDisable()}>Keep Enabled</Button>
-          <Button variant="secondary" onclick={() => confirmDisable()}>Disable</Button>
-        </Dialog.Footer>
-      </Dialog.Content>
-    </Dialog.Root>
-</label>
+  <Dialog.Root bind:open={confirmOpen}>
+    <Dialog.Content showCloseButton={false} class="max-w-md rounded-3xl border border-border/60 bg-card/90 p-6 shadow-lg">
+      <Dialog.Header>
+        <Dialog.Title class="text-lg font-semibold">Disable integration?</Dialog.Title>
+        <Dialog.Description class="text-sm text-muted-foreground">
+          We rely on this data to help other players. Are you sure you want to continue?
+        </Dialog.Description>
+      </Dialog.Header>
+      <Dialog.Footer class="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+        <Button class="sm:w-auto" onclick={() => cancelDisable()}>Keep Enabled</Button>
+        <Button class="sm:w-auto" variant="secondary" onclick={() => confirmDisable()}>Disable</Button>
+      </Dialog.Footer>
+    </Dialog.Content>
+  </Dialog.Root>
+</div>

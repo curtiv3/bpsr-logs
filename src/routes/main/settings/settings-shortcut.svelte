@@ -10,9 +10,9 @@
   } = $props();
 </script>
 
-<label class="flex flex-row items-center">
-  <Switch bind:checked />
-  <div class="ml-4">
-    <div>{label}</div>
+<div class="rounded-3xl border border-border/70 bg-card/70 p-5 shadow-xs transition hover:border-border/60">
+  <div class="flex items-center justify-between gap-4">
+    <p class="text-sm font-medium text-foreground">{label}</p>
+    <Switch bind:checked class="shrink-0" />
   </div>
-</label>
+</div>
