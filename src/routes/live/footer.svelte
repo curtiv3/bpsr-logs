@@ -5,20 +5,22 @@
   import { getVersion } from "@tauri-apps/api/app";
 </script>
 
-<footer class="sticky bottom-0 flex h-7 items-center justify-between bg-neutral-800/70 px-1.5">
-  <span class="flex h-full items-center">
+<footer class="live-app-footer">
+  <div class="live-app-footer__tabs">
     <button
-      class={`rounded-xs px-1.5 ${page.url.pathname.includes("dps") ? "bg-primary" : ""}`}
+      type="button"
+      class={`live-app-footer__tab ${page.url.pathname.includes("dps") ? "live-app-footer__tab--active" : ""}`}
       onclick={() => {
         goto(resolve("/live/dps"));
       }}>DPS</button
     >
     <button
-      class={`rounded-xs px-1.5 ${page.url.pathname.includes("heal") ? "bg-primary" : ""}`}
+      type="button"
+      class={`live-app-footer__tab ${page.url.pathname.includes("heal") ? "live-app-footer__tab--active" : ""}`}
       onclick={() => {
         goto(resolve("/live/heal"));
       }}>HEAL</button
     >
-  </span>
-  <span class="px-1.5 tracking-tighter"><span>BPSR Logs v{#await getVersion()}X.Y.Z{:then version}{version}{/await}</span></span>
+  </div>
+  <span class="live-app-footer__version">BPSR Logs v{#await getVersion()}X.Y.Z{:then version}{version}{/await}</span>
 </footer>

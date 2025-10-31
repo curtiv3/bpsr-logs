@@ -135,3 +135,5 @@
     @apply bg-gradient-to-br from-slate-100 via-white to-slate-200 text-foreground antialiased;
   }
 }
+
+@import "./lib/styles/live-panel.css";
