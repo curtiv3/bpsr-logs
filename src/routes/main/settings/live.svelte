@@ -7,23 +7,31 @@
   const SETTINGS_CATEGORY = "live";
 </script>
 
-<Tabs.Content value={SETTINGS_CATEGORY}>
-  <h2 class="my-4 text-lg font-medium">DPS - Player</h2>
+<Tabs.Content value={SETTINGS_CATEGORY} class="space-y-4">
+  <h2 class="pt-4 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground first:pt-0">
+    DPS - Player
+  </h2>
   {#each dpsPlayersColumnDefs.filter((col) => col.accessorKey) as col (col.accessorKey)}
     <SettingsSwitch bind:checked={SETTINGS.live.dps.players.state[col.accessorKey]} label={col.meta?.label ?? "LABEL MISSING"} description={col.meta?.description} />
   {/each}
 
-  <h2 class="my-4 text-lg font-medium">DPS - Skill Breakdown</h2>
+  <h2 class="pt-6 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+    DPS - Skill Breakdown
+  </h2>
   {#each dpsSkillsColumnDefs.filter((col) => col.accessorKey) as col (col.accessorKey)}
     <SettingsSwitch bind:checked={SETTINGS.live.dps.skillBreakdown.state[col.accessorKey]} label={col.meta?.label ?? "LABEL MISSING"} description={col.meta?.description} />
   {/each}
 
-  <h2 class="my-4 text-lg font-medium">Heal - Player</h2>
+  <h2 class="pt-6 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+    Heal - Player
+  </h2>
   {#each healPlayersColumnDefs.filter((col) => col.accessorKey) as col (col.accessorKey)}
     <SettingsSwitch bind:checked={SETTINGS.live.heal.players.state[col.accessorKey]} label={col.meta?.label ?? "LABEL MISSING"} description={col.meta?.description} />
   {/each}
 
-  <h2 class="my-4 text-lg font-medium">Heal - Skill Breakdown</h2>
+  <h2 class="pt-6 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+    Heal - Skill Breakdown
+  </h2>
   {#each healSkillsColumnDefs.filter((col) => col.accessorKey) as col (col.accessorKey)}
     <SettingsSwitch bind:checked={SETTINGS.live.heal.skillBreakdown.state[col.accessorKey]} label={col.meta?.label ?? "LABEL MISSING"} description={col.meta?.description} />
   {/each}

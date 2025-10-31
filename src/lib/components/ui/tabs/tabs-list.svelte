@@ -5,4 +5,12 @@
   let { ref = $bindable(null), class: className, ...restProps }: TabsPrimitive.ListProps = $props();
 </script>
 
-<TabsPrimitive.List bind:ref data-slot="tabs-list" class={cn("bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]", className)} {...restProps} />
+<TabsPrimitive.List
+  bind:ref
+  data-slot="tabs-list"
+  class={cn(
+    "bg-white/80 text-muted-foreground inline-flex h-11 w-fit items-center justify-center gap-1 rounded-full p-1 shadow-xs backdrop-blur",
+    className,
+  )}
+  {...restProps}
+/>

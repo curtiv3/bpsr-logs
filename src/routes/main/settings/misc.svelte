@@ -10,7 +10,7 @@
   const SETTINGS_CATEGORY = "misc";
 </script>
 
-<Tabs.Content value={SETTINGS_CATEGORY}>
+<Tabs.Content value={SETTINGS_CATEGORY} class="space-y-4">
   <SettingsSwitch bind:checked={SETTINGS.misc.state.testingMode} label="Testing Mode" description="Enable UI Testing. Only works with DPS/Heal Player/Skills. Once you turn it off, make sure to reload the window." />
   <SettingsButton onclick={commands.copySyncContainerData} buttonLabel="SyncContainerData" label="Dump SyncContainerData" description="Dump SyncContainerData to clipboard. This data includes MANY things about YOU including talent tree, gear, etc." />
   <!-- https://v2.tauri.app/plugin/file-system/#usage -->
