@@ -63,6 +63,18 @@ https://discord.com/channels/1417447600608510015/1417450802561290280
    1. Rust: [Jetbrains RustRover](https://www.jetbrains.com/rust/download/?section=windows)
    1. Svelte: [Visual Studio Code](https://code.visualstudio.com/) w/ [Svelte plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) and lint with [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) (there's a `.code-workspace` committed to the repo)
 
+## Building Windows installers locally
+
+If you need to produce the distributable packages yourself, run the desktop bundler from a Windows environment where the [Tauri prerequisites](https://v2.tauri.app/start/prerequisites/) are installed. The build emits both an `.msi` and `.exe` installer.
+
+```bash
+npm run package
+# or, to explicitly target 64-bit Windows
+npm run package:windows
+```
+
+The resulting bundles are written to `src-tauri/target/release/bundle/msi` and `src-tauri/target/release/bundle/nsis`.
+
 # FAQ
 
 ## Table of Contents

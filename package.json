@@ -10,6 +10,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "tauri": "tauri",
+    "package": "tauri build",
+    "package:windows": "tauri build --target x86_64-pc-windows-msvc",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint ."
   },
