@@ -17,10 +17,10 @@
   }: SettingsSwitchProps = $props();
 </script>
 
-<div class="rounded-3xl border border-border/70 bg-card/70 p-5 shadow-xs transition hover:border-border/60">
-  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-    <div class="space-y-1">
-      <p class="text-sm font-medium text-foreground">{label}</p>
+<div class="rounded-2xl border border-border/60 bg-card/50 p-4 shadow-sm transition-colors hover:border-border/50">
+  <div class="flex flex-col gap-3 sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-4">
+    <div class="space-y-1.5">
+      <p class="text-sm font-semibold text-foreground/90">{label}</p>
       {#if description}
         <p class="text-muted-foreground text-xs leading-relaxed">{description}</p>
       {/if}

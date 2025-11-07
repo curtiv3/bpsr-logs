@@ -27,9 +27,9 @@
     <AppSidebar />
     <Sidebar.Inset class="relative">
       <Header />
-      <main class="px-4 py-10 lg:px-10">
-        <div class="mx-auto flex w-full max-w-6xl flex-col gap-8">
-          <section class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-xl backdrop-blur-xl lg:p-8">
+      <main class="px-4 py-8 sm:px-6 lg:px-10">
+        <div class="mx-auto flex w-full max-w-5xl flex-col gap-6">
+          <section class="rounded-2xl border border-border/60 bg-card/60 p-5 shadow-lg backdrop-blur lg:p-7">
             {@render children()}
           </section>
         </div>

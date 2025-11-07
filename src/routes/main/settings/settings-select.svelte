@@ -21,23 +21,23 @@
   let open = $state(false);
 </script>
 
-<div class="rounded-3xl border border-border/70 bg-card/70 p-5 shadow-xs transition hover:border-border/60">
+<div class="rounded-2xl border border-border/60 bg-card/50 p-4 shadow-sm transition-colors hover:border-border/50">
   <!-- https://shadcn-svelte.com/docs/components/combobox -->
-  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-    <div class="space-y-1">
-      <p class="text-sm font-medium text-foreground">{label}</p>
+  <div class="flex flex-col gap-3 sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-4">
+    <div class="space-y-1.5">
+      <p class="text-sm font-semibold text-foreground/90">{label}</p>
       {#if description}
         <p class="text-muted-foreground text-xs leading-relaxed">{description}</p>
       {/if}
     </div>
     <Popover.Root bind:open>
       <Popover.Trigger class="sm:ml-auto">
-        <Button variant="outline" class="w-full justify-between sm:w-[220px]" role="combobox">
-          {selected}
-          <ChevronsUpDownIcon />
+        <Button variant="outline" class="w-full justify-between sm:min-w-[200px] sm:w-auto" role="combobox">
+          <span class="truncate text-sm font-medium">{selected}</span>
+          <ChevronsUpDownIcon class="shrink-0" />
         </Button>
       </Popover.Trigger>
-      <Popover.Content class="w-[220px] p-0">
+      <Popover.Content class="min-w-[200px] p-0">
         <Command.Root>
           <Command.List>
             <Command.Group>

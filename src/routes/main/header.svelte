@@ -10,14 +10,14 @@
 </script>
 
 <header
-  class="h-(--header-height) group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height) sticky top-0 z-30 flex shrink-0 items-center border-b border-border/60 bg-white/70 backdrop-blur-xl transition-[width,height] ease-linear"
+  class="h-(--header-height) group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height) sticky top-0 z-30 flex shrink-0 items-center border-b border-border/50 bg-card/70 backdrop-blur transition-[width,height] ease-linear"
 >
-  <div class="flex w-full items-center gap-3 px-5 py-3 lg:px-8">
-    <Sidebar.Trigger class="-ml-1 rounded-full border border-transparent bg-white/70 p-2 shadow-xs backdrop-blur hover:border-border/80" />
-    <Separator orientation="vertical" class="hidden h-6 w-px lg:block" />
+  <div class="flex w-full items-center gap-3 px-4 py-2.5 sm:px-5 lg:px-8">
+    <Sidebar.Trigger class="-ml-1 rounded-full border border-border/40 bg-background/70 p-2 shadow-sm backdrop-blur-sm transition hover:border-border/80" />
+    <Separator orientation="vertical" class="hidden h-6 w-px text-border/60 lg:block" />
     <div class="flex flex-col">
-      <span class="text-xs font-medium uppercase tracking-[0.32em] text-muted-foreground">Dashboard</span>
-      <h1 class="text-lg font-semibold tracking-tight text-foreground lg:text-xl">{currentPage?.label ?? "UNKNOWN PAGE LABEL"}</h1>
+      <span class="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-muted-foreground">Dashboard</span>
+      <h1 class="text-base font-semibold tracking-tight text-foreground sm:text-lg">{currentPage?.label ?? "UNKNOWN PAGE LABEL"}</h1>
     </div>
   </div>
 </header>

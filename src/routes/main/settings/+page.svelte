@@ -17,8 +17,8 @@
   ];
 </script>
 
-<Tabs.Root value="general" class="flex flex-col gap-8">
-  <Tabs.List class="self-start">
+<Tabs.Root value="general" class="flex flex-col gap-6">
+  <Tabs.List class="self-stretch">
     {#each settingsTabs as settingsTab (settingsTab.id)}
       <Tabs.Trigger value={settingsTab.id}>{settingsTab.label}</Tabs.Trigger>
     {/each}
