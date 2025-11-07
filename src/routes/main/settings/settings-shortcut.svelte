@@ -10,9 +10,9 @@
   } = $props();
 </script>
 
-<div class="rounded-3xl border border-border/70 bg-card/70 p-5 shadow-xs transition hover:border-border/60">
-  <div class="flex items-center justify-between gap-4">
-    <p class="text-sm font-medium text-foreground">{label}</p>
+<div class="rounded-2xl border border-border/60 bg-card/50 p-4 shadow-sm transition-colors hover:border-border/50">
+  <div class="flex items-center justify-between gap-3">
+    <p class="text-sm font-semibold text-foreground/90">{label}</p>
     <Switch bind:checked class="shrink-0" />
   </div>
 </div>
